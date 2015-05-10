@@ -1,0 +1,20 @@
+{"level":"info","message":"Logger winston configured and started","timestamp":"2015-05-08T23:09:50.744Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-08T23:09:50.747Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-08T23:09:50.748Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-08T23:09:50.751Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-08T23:09:50.762Z"}
+{"level":"info","message":"Logger winston configured and started","timestamp":"2015-05-08T23:11:45.132Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-08T23:11:45.135Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-08T23:11:45.137Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-08T23:11:45.141Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-08T23:11:45.152Z"}
+{"level":"info","message":"Logger winston configured and started","timestamp":"2015-05-08T23:12:36.407Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-08T23:12:36.411Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-08T23:12:36.412Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-08T23:12:36.414Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-08T23:12:36.435Z"}
+{"level":"info","message":"Logger winston configured and started","timestamp":"2015-05-08T23:19:49.904Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-08T23:19:49.917Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-08T23:19:49.919Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-08T23:19:49.923Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-08T23:19:49.934Z"}

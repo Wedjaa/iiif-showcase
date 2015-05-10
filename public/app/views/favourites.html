@@ -1,0 +1,11 @@
+<div class="row marketing">
+	<div class="heading" ng-if="!numFavourites">
+		<h4>Search, browse, explore...<small>You'll find your selected collections here</small></h4>
+	</div>
+	<div class="heading" ng-if="numFavourites">
+		<button ng-click="openMirador()" type="button" class="btn btn-success">Open in Mirador</button>
+	</div>
+	<div class="favourites">
+		<collection ng-repeat="manifest in favourites" manifest="manifest['@id']" favourite="manifest.favourite"></collection>
+	</div>
+</div>

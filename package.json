@@ -1,0 +1,25 @@
+{
+  "name": "iiif-gallery",
+  "version": "1.0.0",
+  "description": "A IIIF collections showcasing service",
+  "main": "showcase.js",
+  "scripts": {
+    "start": "node showcase.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@172.17.0.15:mrwho/iiif-gallery.git"
+  },
+  "keywords": [
+    "iiif"
+  ],
+  "author": "Fabio Torchetti <mrwho@wedjaa.net>",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "bluebird": "^2.9.25",
+    "express": "^4.12.3",
+    "express-winston": "^0.3.0",
+    "winston": "^1.0.0"
+  }
+}

@@ -1,0 +1,30 @@
+<div class="row marketing">
+  <form role="form">
+    <div class="form-group" ng-if="submit.hasFileRead()" ng-cloak>
+      <label for="manifests">IIIF Manifests URIs:</label>
+      <textarea class="form-control" rows="5" id="manifests" ng-model="manifestText.content"></textarea>
+    </div>
+    <div class="form-group" ng-if="submit.hasFileRead()" ng-cloak>
+      <span class="btn btn-default btn-file">
+        Browse <input onchange="angular.element(this).scope().uploadFile(this)" ng-model="manifestsFile"  type="file">
+      </span>
+      <button type="submit" class="btn btn-primary" ng-click="parseManifests()">Parse List</button>
+      <button type="submit" class="btn btn-success pull-right" ng-click="indexManifests()">Index Selected</button>
+    </div>
+  </form>
+    <table id="manifestsTable" class="table table-hover table-condensed" ng-cloak ng-if="manifestList.length">
+        <thead>
+        <tr>
+        	<th style="width: 5%; text-align: center">Submit <br/><input type="checkbox" ng-click="selectAll()" ng-model="selectedAll" ></input></th>
+        	<th>Manifest URI<br/>&nbsp;</th>
+       	</tr>
+        </thead>
+        <tbody>
+	    <tr ng-repeat="manifest in manifestList">
+                <td class="vcenter" style="text-align: center"><input type="checkbox" ng-model="manifest.selected"/></td>
+		<td class="manifest-cell">{{manifest.uri}}</td>
+	    </tr>
+        </tbody>
+    </table>
+
+</div>

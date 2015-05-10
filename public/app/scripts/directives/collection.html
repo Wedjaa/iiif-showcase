@@ -1,0 +1,39 @@
+<div class="collection">
+	<div class="loaded" ng-if="loaded">
+		<div class="title">
+			<span class="favourite" 
+				ng-class="favourite ? 'selected':''"  
+				ng-click="toggleFavourite()">
+					<i class="glyphicon glyphicon-heart"></i>
+			</span>
+			<h3>{{label}}</br><a ng-href="{{linkback}}"><small>{{attribution}}</small></a></h3>
+		</div>
+		<div class="details">
+			<div class="thumbnail"><img ng-src="{{thumbnail}}"></img></div>
+			<div class="description" ng-bind="description"></div>
+			<div class="info">
+				<div class="attribution"><a class="linkback" ng-href="{{linkback}}">{{attribution}}</a></div>
+				<div class="license">
+					<a class="license-link" ng-href="{{license}}">
+						<i class="glyphicon glyphicon glyphicon-copyright-mark"></i>
+						License
+					</a>
+				</div>
+				<div class="miropen">
+					<a ng-click="openMirador()" class="mirador-link" href="">
+						<i class="glyphicon glyphicon-eye-open"></i>
+						Open in Mirador
+					</a>
+				</div>
+				<div class="float-clear"></div>
+			</div>	
+		</div>
+	</div>
+	<div class="loading" ng-if="!loaded">
+		<center>
+		<h3>Loading collection</h3>
+		<img ng-src="{{spinner}}"></img>
+		</center>
+	</div>
+</div>
+

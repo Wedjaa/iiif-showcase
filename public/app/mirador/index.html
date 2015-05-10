@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" type="text/css" href="build/mirador/css/mirador-combined.css">
+  <title>IIIF Showcase - Mirador Viewer</title>
+  <style type="text/css">
+    body { padding: 0; margin: 0; overflow: hidden; font-size: 70%; }
+    #viewer { background: #333 url(images/debut_dark.png) left top repeat; width: 100%; height: 100%; position: fixed; }
+  </style>
+</head>
+<body>
+  <div id="viewer"></div>
+
+  <script src="build/mirador/mirador.js"></script>
+  <script type="text/javascript">
+
+	function initialize(manifestsLinks) {
+	      console.log('Using Manifests: ' + JSON.stringify(manifestsLinks));
+	      var windowObjects = [];
+	      if ( manifestsLinks.length === 1 ) {
+		var chosen = manifestsLinks[0];
+		// It's a single link - we can show it to start with...
+		var winObject = {
+			loadedManifest: chosen.manifestUri,
+			viewType: 'BookView'
+		};
+		windowObjects.push(winObject);
+	      }
+
+	      Mirador({
+		"id": "viewer",
+		"layout": "1x1",
+		"mainMenuSettings" :
+		  {"show": true,
+		   "buttons" : {"bookmark" : true, "layout" : true},
+		   "userButtons": [ ],
+		   "userLogo": {"label": "IIIF", "attributes": {"href": "http://iiif.io"}}
+		 },
+		'showAddFromURLBox' : false,
+		"saveSession": true,
+		"data": manifestsLinks,
+		"windowObjects": windowObjects
+	      });
+	}
+
+  </script>
+</body>
+</html>
