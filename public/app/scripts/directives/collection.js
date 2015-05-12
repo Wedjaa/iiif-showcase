@@ -1,8 +1,8 @@
 'use strict';
 
 var scripts = document.getElementsByTagName('script');
-var directivePath = scripts[scripts.length-1].src;
-var directiveTpl = directivePath.replace(/\.js/, '.html');
+var collectionDirectivePath = scripts[scripts.length-1].src;
+var collectionDirectiveTpl = collectionDirectivePath.replace(/\.js/, '.html');
 
 /**
  * @ngdoc directive
@@ -17,10 +17,10 @@ angular.module('showcaseClientApp')
 	 manifest: '=',
 	 favourite: '='
       },
-      templateUrl: directiveTpl,
+      templateUrl: collectionDirectiveTpl,
       restrict: 'E',
       link: function postLink(scope /*, element, attrs */) {
-	scope.spinner = directivePath.replace(/\.js/, '.gif');
+	scope.spinner = collectionDirectivePath.replace(/\.js/, '.gif');
 	ManifestService.getManifest(scope.manifest)
 		.then(function(manifestObject) {
 			scope.license = ManifestService.getLicense(manifestObject);

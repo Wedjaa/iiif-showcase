@@ -1,0 +1,13 @@
+{
+	"aggs": {
+		"suggestions": {
+			"terms" : {
+				"field" : "_all",
+				"include": {
+					"pattern": "beg.*"
+				}
+			}
+		}
+	}
+}
+

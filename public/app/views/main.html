@@ -1,11 +1,13 @@
 <div class="jumbotron">
-  <h1>IIIF ShowCase</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+    <img height="200px" src="images/iiif-logo.png" alt="IIIF Logo"><br>
     Start exploring 
+    <center>
+    <typeahead suggester="suggester" terms="terms"></typeahead>
+    </center>
   </p>
 </div>
-
+<h2 ng-repeat="term in terms track by $index" ng-bind="term"></h2>
 <div class="row marketing">
   <collection manifest="sample" favourite="favourite"></collection>
 </div>

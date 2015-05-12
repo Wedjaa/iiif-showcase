@@ -8,7 +8,7 @@
  * Service in the showcaseClientApp.
  */
 angular.module('showcaseClientApp')
-  .service('SubmitService', function ($q, ManifestService) {
+  .service('SubmitService', function ($q, $http, ManifestService) {
 
 	this.hasFileRead = function() {
 		if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -50,15 +50,25 @@ angular.module('showcaseClientApp')
 		return $q(function(resolve, reject) {
 
 			var indexDocument = {
+				uri: ManifestService.getUri(manifest),
 				label: ManifestService.getLabel(manifest),
 				description: ManifestService.getAllDescriptions(manifest),
 				metadata: ManifestService.getMetadata(manifest),
 				attribution: ManifestService.getAttribution(manifest),
-				thumbnail: ManifestService.getThumbnail(manifest, 320, 200, true)
+				thumbnail: ManifestService.getThumbnail(manifest, 320, 200, true),
+				manifest: manifest
 			};
 
-			console.log("Index: " + JSON.stringify(indexDocument, undefined, 4));
-			resolve(indexDocument);
+			$http.post('/api/index', indexDocument).
+			  success(function(data, status, headers, config) {
+				if ( data && data.success ) {
+					resolve(true);
+				}
+				reject(new Error(data.message));
+			  }).
+			  error(function(data, status, headers, config) {
+				reject(new Error('Index request has failed - Status: ' + status));
+			  });
 		});
 	};
 
@@ -78,7 +88,7 @@ angular.module('showcaseClientApp')
 				.catch(function(error) {
 					manifestDescriptor.error = true;
 					manifestDescriptor.message = error.message;
-					reject(new Error('Failed to read manifest for indexing: ' + error.toString()));
+					reject(new Error('Failed to index manifest: ' + error.toString()));
 				});
 		});
 	};

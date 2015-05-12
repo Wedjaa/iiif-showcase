@@ -212,3 +212,23 @@ collection .collection {
 	display: block;
 }
 
+.suggestions {
+	position: relative;
+	background: white none repeat scroll 0% 0%;
+	border: 1px solid lightgray;
+}
+
+.suggestion {
+	padding-left: 12px;
+}
+
+.suggestion.selected {
+	background: lightgray;
+	color: black;
+}
+
+.typeahead {
+	width: 100%;
+	float: left;
+}
+

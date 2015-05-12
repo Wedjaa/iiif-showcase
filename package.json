@@ -18,6 +18,8 @@
   "license": "Apache 2.0",
   "dependencies": {
     "bluebird": "^2.9.25",
+    "body-parser": "^1.12.3",
+    "elasticsearch": "^4.0.2",
     "express": "^4.12.3",
     "express-winston": "^0.3.0",
     "winston": "^1.0.0"

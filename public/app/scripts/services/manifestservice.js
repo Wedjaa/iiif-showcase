@@ -54,6 +54,10 @@ angular.module('showcaseClientApp')
 		return manifest.label ? manifest.label : 'Untitled';
 	};
 
+	this.getUri = function(manifest) {
+		return manifest['@id'];
+	};
+
 	this.getObjectValue = function(valueObj) {
 		if (typeof valueObj === 'string' ) {
 			return valueObj;
@@ -116,12 +120,15 @@ angular.module('showcaseClientApp')
 	};
 
 	this.getMetadata = function(manifest) {
-		var metadata = {};
+		var metadata = [];
 		if ( manifest.metadata ) {
 			for ( var metaIdx in manifest.metadata ) {
 				var meta = manifest.metadata[metaIdx];
 				if ( meta.label ) {
-					metadata[meta.label] = this.getPropertyValue(meta.value);
+					var metaObj = {};
+					metaObj.label = meta.label;
+					metaObj.value = this.getPropertyValue(meta.value);
+					metadata.push(metaObj);
 				}
 			}
 		}

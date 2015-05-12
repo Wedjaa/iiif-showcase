@@ -26,6 +26,12 @@
 	},
 	"defaults": {
 		"client": "public/app",
+		"elastic": {
+			"host": "localhost",
+			"port": 9200,
+			"index": "iiif-gallery",
+			"timeout": 1000
+		},
 		"server": {
 			"port": 3000
 		},

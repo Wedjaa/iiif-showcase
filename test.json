@@ -1,0 +1,24 @@
+{
+	"query":{
+		"filtered":{
+			"filter":{
+				"terms":{
+					"_all":[ "date" ],
+					"execution":"and",
+					"_cache":true
+				}
+			}
+		}
+	},
+	"aggs":{
+		"suggestions":{
+			"significant_terms":{
+				"field":"_all",
+				"include":{
+					"pattern":"z.*",
+					"flags":"CANON_EQ|CASE_INSENSITIVE"
+				}
+			}
+		}
+	}
+}
