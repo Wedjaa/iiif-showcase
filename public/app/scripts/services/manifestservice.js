@@ -59,13 +59,20 @@ angular.module('showcaseClientApp')
 	};
 
 	this.getObjectValue = function(valueObj) {
+		var objValue = {
+			lang: 'en'
+		};
 		if (typeof valueObj === 'string' ) {
-			return valueObj;
+			objValue.value = valueObj;
+			return objValue;
 		}
 		if ( valueObj['@value'] ) {
-			return  valueObj['@value'];
+			objValue.lang = valueObj['@language'];
+			objValue.value = valueObj['@value'];
+			return objValue;
 		}
-		return valueObj.toString();
+		objValue.value = valueObj.toString();
+		return objValue;
 	};
 
 	this.getPropertyValue = function(value, lang) {
@@ -73,7 +80,11 @@ angular.module('showcaseClientApp')
 		var self = this;
 
 		if ( typeof value === 'string' ) {
-			return value;
+			var objValue = {
+				lang: 'en',
+				value: value
+			};
+			return objValue;
 		}
 
 		if ( angular.isArray(value) ) {
@@ -96,7 +107,7 @@ angular.module('showcaseClientApp')
 			return selectedValues;
 		}
 		
-		return '';
+		return  {lang: 'en', value: ''};
 	};
 
 	this.getProperty = function(manifest, property) {

@@ -29,7 +29,7 @@ angular.module('showcaseClientApp')
           scope.selected = 0;
           elem.bind('keydown', 
           function(evt)     {
-              console.log(evt);
+              // console.log(evt);
               var processed = false;
               if ( evt.keyCode === 40 && scope.suggestions.length>0 ) {
                   if ( scope.selected === scope.suggestions.length - 1 ) {
@@ -78,7 +78,7 @@ angular.module('showcaseClientApp')
 		  }
                   var value = elem.find('input')[0].value;
                   if ( evt.keyCode !== 8 ) {
-                      value += evt.key;
+                      value += String.fromCharCode(evt.keyCode);
                   } else {
                       value = value.slice(0, - 1);
                   }

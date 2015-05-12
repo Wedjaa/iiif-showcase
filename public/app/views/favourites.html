@@ -6,6 +6,6 @@
 		<button ng-click="openMirador()" type="button" class="btn btn-success">Open in Mirador</button>
 	</div>
 	<div class="favourites">
-		<collection ng-repeat="manifest in favourites" manifest="manifest['@id']" favourite="manifest.favourite"></collection>
+		<collection ng-repeat="manifest in favourites" manifest="manifest" favourite="manifest.favourite"></collection>
 	</div>
 </div>

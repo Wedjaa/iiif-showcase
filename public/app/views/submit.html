@@ -16,12 +16,23 @@
         <thead>
         <tr>
         	<th style="width: 5%; text-align: center">Submit <br/><input type="checkbox" ng-click="selectAll()" ng-model="selectedAll" ></input></th>
+        	<th style="width: 15%; text-align: center">Status</input></th>
         	<th>Manifest URI<br/>&nbsp;</th>
        	</tr>
         </thead>
         <tbody>
 	    <tr ng-repeat="manifest in manifestList">
                 <td class="vcenter" style="text-align: center"><input type="checkbox" ng-model="manifest.selected"/></td>
+                <td class="vcenter" style="text-align: left">
+		<span style="color: lightblue" ng-if="manifest.fetching && !manifest.indexing" class="glyphicon glyphicon-import" aria-hidden="true"></span>
+		<span style="color: green" ng-if="manifest.fetching && manifest.indexing" class="glyphicon glyphicon-import" aria-hidden="true"></span>
+		<span style="color: orange" ng-if="manifest.fetching && !manifest.indexing &&  manifest.error" class="glyphicon glyphicon-import" aria-hidden="true"></span>
+		<span style="color: lightblue" ng-if="manifest.indexing && !manifest.indexed" class="glyphicon glyphicon-export" aria-hidden="true"></span>
+		<span style="color: green" ng-if="manifest.indexing && manifest.indexed" class="glyphicon glyphicon-export" aria-hidden="true"></span>
+		<span style="color: orange" ng-if="manifest.indexing && manifest.error" class="glyphicon glyphicon-export" aria-hidden="true"></span>
+		<span style="color: green" ng-if="manifest.indexed" class="glyphicon glyphicon-saved" aria-hidden="true"></span>
+		<span style="color: orange" ng-if="manifest.error" class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+		</td>
 		<td class="manifest-cell">{{manifest.uri}}</td>
 	    </tr>
         </tbody>

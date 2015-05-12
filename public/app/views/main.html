@@ -7,7 +7,7 @@
     </center>
   </p>
 </div>
-<h2 ng-repeat="term in terms track by $index" ng-bind="term"></h2>
+<h2 ng-repeat="hit in hits track by $index" ng-bind="hit"></h2>
 <div class="row marketing">
-  <collection manifest="sample" favourite="favourite"></collection>
+  <collection ng-repeat="collection in collections" manifest="collection" favourite="favourite"></collection>
 </div>

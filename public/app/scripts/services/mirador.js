@@ -13,7 +13,7 @@ function makeid()
 function manifestsToLinks(manifests) {
 	return manifests.reduce(function(processed, manifest) {
 		processed.push({
-			manifestUri: manifest['@id'],
+			manifestUri: manifest.uri,
 			location: manifest['attribution']
 		});
 		return processed;

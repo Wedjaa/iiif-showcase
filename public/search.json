@@ -6,28 +6,40 @@
 					"must": [
 						{
 							"match": {
-								"search_suggest": ""
+								"search_suggest": "zentralbibliothek monastery 16th"
 							}
 						}
 					],
 					"should": [
 						{
 							"match": {
-								"label": ""
-							},
+								"label": "zentralbibliothek monastery 16th"
+							}
+						},
+						{
 							"match_phrase": {
-								"label": "",
-								"boost": 2.0
-							},
+								"label": {
+									"query": "zentralbibliothek monastery 16th",
+									"boost": 2.0
+								}
+							}
+						},
+						{
 							"match_phrase": {
-								"label": "",
-								"slop": 2,
-								"boost": 1.5
-							},
+								"label": {
+									"query": "zentralbibliothek monastery 16th",
+									"slop": 2,
+									"boost": 1.5
+								}
+							}
+						},
+						{
 							"match_phrase": {
-								"search_suggest": "",
-								"slop": 2,
-								"boost": 1.0
+								"search_suggest": {
+									"query":  "zentralbibliothek monastery 16th",
+									"slop": 2,
+									"boost": 1.0
+								}
 							}
 						}
 					]
@@ -35,7 +47,7 @@
 			},
 			"filter": {
 				"terms": {
-					"search_suggest": [],
+					"search_suggest": [ "zentralbibliothek", "monastery", "16th"],
 					"execution": "fielddata"
 				}
 			}

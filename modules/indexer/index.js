@@ -12,13 +12,31 @@ var iiif_mapping = {
 				type: 'string',
 				index: 'not_analyzed'
 			},
+			linkback: {
+				type: 'string',
+				index: 'not_analyzed'
+			},
+			license: {
+				type: 'string',
+				index: 'not_analyzed'
+			},
 			label: {
 				type: 'string',
 				copy_to: ['search_suggest']
 			},
 			description: {
-				type: 'string',
-				copy_to: 'search_suggest'
+				type: 'nested',
+				properties: {
+					lang: {
+						type: 'string',
+						index: 'not_analyzed'
+					},
+					value: {
+						type: 'string',
+						index: 'not_analyzed',
+						copy_to: 'search_suggest'
+					}
+				}
 			},
 			metadata: {
 				type: 'nested',
@@ -28,8 +46,18 @@ var iiif_mapping = {
 						index: 'not_analyzed'
 					},
 					value: {
-						type: 'string',
-						copy_to: 'search_suggest'
+						type: 'nested',
+						properties: {
+							lang: {
+								type: 'string',
+								index: 'not_analyzed'
+							},
+							value: {
+								type: 'string',
+								index: 'not_analyzed',
+								copy_to: 'search_suggest'
+							}
+						}
 					}
 				}
 			},	
@@ -41,10 +69,6 @@ var iiif_mapping = {
 			thumbnail: {
 				type: 'string',
 				index: 'no'
-			},
-			manifest: {
-				type: 'object',
-				enabled: false
 			},
 			search_suggest: {
 				type: 'string'
@@ -381,6 +405,98 @@ Indexer.prototype.suggest = function(hint) {
 				});
 			});
 	});
+}
+
+Indexer.prototype.search = function(terms) {
+	var self = this;
+	
+	return new Promise(function(resolve, reject) {
+		if (!terms || !Array.isArray(terms) || terms.length === 0) {
+			reject(new Error('Missing terms in search request'));
+			return;
+		}
+
+		var searchText = terms.join(' ');
+		var searchQuery = {
+			query: {
+				filtered: {
+					query: {
+						bool: {
+							must: [
+								{
+									match: {
+										search_suggest: searchText 
+									}
+								}
+							],
+							should: [
+								{
+									match: {
+										label: searchText
+									}
+								},
+								{
+									match_phrase: {
+										label: {
+											query: searchText,
+											boost: 2.0
+										}
+									}
+								},
+								{
+									match_phrase: {
+										label: {
+											query: searchText,
+											slop: 2,
+											boost: 1.5
+										}
+									}
+								},
+								{
+									match_phrase: {
+										search_suggest: {
+											query:  searchText,
+											slop: 2,
+											boost: 1.0
+										}
+									}
+								}
+							]
+						}
+					},
+					filter: {
+						terms: {
+							search_suggest: terms,
+							execution: 'fielddata'
+						}
+					}
+				}
+			}
+		};
+
+		self.getClient()
+                        .then(function(client) {
+				client.search({
+					index: 'iiif-gallery',
+					type: 'iiif_manifest',
+					body: searchQuery
+				}, function(error, results) {
+					if ( error ) {
+						reject( new Error('Query failed: ' + error.message));
+						return;
+					}
+					var hits = results.hits.hits;
+					var sources = hits.map(function(hit) {
+						var source = hit['_source'];
+						source.score = hit._score;
+						return source;
+					});
+					resolve(sources);
+				});
+			});
+	});
+ 
+	
 }
 
 var indexer;

@@ -56,7 +56,8 @@ angular.module('showcaseClientApp')
 				metadata: ManifestService.getMetadata(manifest),
 				attribution: ManifestService.getAttribution(manifest),
 				thumbnail: ManifestService.getThumbnail(manifest, 320, 200, true),
-				manifest: manifest
+				linkback: ManifestService.getLinkback(manifest),
+				license: ManifestService.getLicense(manifest)
 			};
 
 			$http.post('/api/index', indexDocument).
@@ -77,13 +78,18 @@ angular.module('showcaseClientApp')
 		var self = this;
 
 		return $q(function(resolve, reject) {
+			manifestDescriptor.indexing = false;
+			manifestDescriptor.indexed = false;
+			manifestDescriptor.error = false;
+			manifestDescriptor.fetching = true;
 			ManifestService.getManifest(manifestDescriptor.uri)
 				.then(function(manifest) {
-					manifestDescriptor.fetched = true;
+					manifestDescriptor.indexing = true;
 					return self.indexFetchedManifest(manifest);
 				})
 				.then(function(indexedDoc) {
 					manifestDescriptor.indexed = true;
+					resolve(true);
 				})
 				.catch(function(error) {
 					manifestDescriptor.error = true;

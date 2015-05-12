@@ -13,15 +13,15 @@ angular.module('showcaseClientApp')
 	$rootScope.numFavourites = 0;
 	$scope.route = $route;
 	$scope.$on('toggle_favourite', function(event, manifest) {
-		console.log('Received toggle for: ' + manifest['@id']);
-		if ( $rootScope.favourites[manifest['@id']] ) {
+		console.log('Received toggle for: ' + manifest.uri);
+		if ( $rootScope.favourites[manifest.uri] ) {
 			console.log('Removing favourite');
-			delete $rootScope.favourites[manifest['@id']];
+			delete $rootScope.favourites[manifest.uri];
 			manifest.favourite = false;
 			$rootScope.numFavourites--;
 		} else {
 			console.log('Adding favourite');
-			$rootScope.favourites[manifest['@id']] = manifest;
+			$rootScope.favourites[manifest.uri] = manifest;
 			manifest.favourite = true;
 			$rootScope.numFavourites++;
 		}

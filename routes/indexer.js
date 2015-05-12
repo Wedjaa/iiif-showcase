@@ -10,7 +10,7 @@ router.post('/', function(req, res) {
 	logger.debug('Index request for: ' + JSON.stringify(req.body.uri));
 	indexer.index(req.body)
 		.then(function(indexed) {
-			res.json({succcess: true, message: 'Manifest indexed', details: indexed});
+			res.json({success: true, message: 'Manifest indexed', details: indexed});
 		})
 		.catch(function(error) {
 			res.json({success: false, message: error.message, details: error});
