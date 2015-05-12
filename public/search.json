@@ -1,0 +1,45 @@
+{
+	"query": {
+		"filtered": {
+			"query": {
+				"bool": {
+					"must": [
+						{
+							"match": {
+								"search_suggest": ""
+							}
+						}
+					],
+					"should": [
+						{
+							"match": {
+								"label": ""
+							},
+							"match_phrase": {
+								"label": "",
+								"boost": 2.0
+							},
+							"match_phrase": {
+								"label": "",
+								"slop": 2,
+								"boost": 1.5
+							},
+							"match_phrase": {
+								"search_suggest": "",
+								"slop": 2,
+								"boost": 1.0
+							}
+						}
+					]
+				}
+			},
+			"filter": {
+				"terms": {
+					"search_suggest": [],
+					"execution": "fielddata"
+				}
+			}
+		}
+	}
+}
+

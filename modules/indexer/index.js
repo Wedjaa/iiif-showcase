@@ -14,7 +14,6 @@ var iiif_mapping = {
 			},
 			label: {
 				type: 'string',
-				index: 'not_analyzed',
 				copy_to: ['search_suggest']
 			},
 			description: {
@@ -114,6 +113,10 @@ Indexer.prototype.prepare = function(indexName) {
 			.then(function(aliasResult) {
 				logger.debug('Alias created, creating mapping');
 				return self.createMapping(indexRealName);
+			})
+			.then(function(mappingDone) {
+				logger.debug('New index created');
+				resolve(true);
 			})
 			.catch(function(error) {
 				if ( error.message === 'alias_exists' ) {
