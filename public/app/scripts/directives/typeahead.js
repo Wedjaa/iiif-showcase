@@ -31,6 +31,9 @@ angular.module('showcaseClientApp')
           function(evt)     {
               // console.log(evt);
               var processed = false;
+	      if ( keyProcess ) {
+		  clearTimeout(keyProcess);
+	      }
               if ( evt.keyCode === 40 && scope.suggestions.length>0 ) {
                   if ( scope.selected === scope.suggestions.length - 1 ) {
                         scope.selected = 0;
@@ -68,14 +71,12 @@ angular.module('showcaseClientApp')
               }
               
               if (  evt.keyCode === 32 ) {
+		  scope.suggestions = [];
                   scope.terms = elem.find('input')[0].value.split(/\s/);
 		  processed = true;
               }
               
               if (!processed) {
-		  if ( keyProcess ) {
-			clearTimeout(keyProcess);
-		  }
                   var value = elem.find('input')[0].value;
                   if ( evt.keyCode !== 8 ) {
                       value += String.fromCharCode(evt.keyCode);
@@ -89,7 +90,7 @@ angular.module('showcaseClientApp')
 					.then(function(suggestions) {
 						scope.suggestions = suggestions;
 					});
-			  }, 500);
+			  }, 200);
 		  } else {
 			  scope.suggestions = [];
 		  }

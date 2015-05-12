@@ -146,11 +146,37 @@ angular.module('showcaseClientApp')
 		return metadata;
 	};
 
+	this.getImageThumbUri = function(resource, maxWidth, maxHeight) {
+
+		if ( !resource || 
+			!resource.service || 
+				!resource.service.profile ||
+					!resource.service.profile.startsWith('http://library.stanford.edu/iiif/image-api')) {
+			return '/images/rodent.jpg';
+		} 
+
+		var iiifEndpoint = resource.service['@id'];
+		maxWidth = maxWidth ? maxWidth : 320;
+		maxHeight = maxHeight ? maxHeight : 200;
+		var thumbUrl = iiifEndpoint + '/full/!' + maxWidth + ',' + maxHeight + '/0/default.jpg';
+		return thumbUrl;	
+	};
+
+	this.parseThumbnail = function(thumb, maxWidth, maxHeight) {
+		if ( typeof thumb === 'string' ) {
+			return thumb;
+		}
+		var thumbUri = this.getImageThumbUri(thumb);
+		return thumbUri;
+	}
+
 	this.getThumbnail = function(manifest, maxWidth, maxHeight, notRandom) {
+
+		var self = this;
 
 		// First off - use the one in the manifest
 		if ( manifest.thumbnail ) {
-			return manifest.thumbnail;
+			return this.parseThumbnail(manifest.thumbnail, maxWidth, maxHeight);
 		}
 
 		if ( ! manifest.sequences || !manifest.sequences[0] ) {
@@ -162,7 +188,7 @@ angular.module('showcaseClientApp')
 
 		// Or the thumb of the first sequence
 		if ( sequence.thumbnail ) {
-			return sequence.thumbnail;
+			return this.parseThumbnail(sequence.thumbnail, maxWidth, maxHeight);
 		}
 
 		// Another botched manifest had no canvases
@@ -170,17 +196,14 @@ angular.module('showcaseClientApp')
 			return '/images/rodent.jpg';
 		}	
 
-		// Ok - let's use a random page	
-		var canvas = sequence.canvases[Math.floor(Math.random() * sequence.canvases.length)];
-	
-		// - unless we are told not to
-		if ( notRandom ) {
-			canvas = sequence.canvases[0];
+		var canvas = sequence.canvases[0];	
+		if ( !notRandom ) {
+			canvas = sequence.canvases[Math.floor(Math.random() * sequence.canvases.length)];
 		}
 	
 		// Or the thumb of the canvas 
 		if ( canvas.thumbnail ) {
-			return canvas.thumbnail;
+			return this.parseThumbnail(canvas.thumbnail, maxWidth, maxHeight);
 		}
 
 		// Another botched manifest had no images 
@@ -192,26 +215,11 @@ angular.module('showcaseClientApp')
 		var image = canvas.images[0];
 
 		if ( image.thumbnail ) {
-			return image.thumbnail;
+			return his.parseThumbnail(image.thumbnail, maxWidth, maxHeight);
 		}		
 
+		return self.getImageThumbUri(image.resource, maxWidth, maxHeight);
 	
-		// Ok - find out if we have a resource and a service to get
-		// a thumbnail generated for us.
-	
-		if ( !image.resource || 
-			!image.resource.service || 
-				!image.resource.service.profile ||
-					!image.resource.service.profile.startsWith('http://library.stanford.edu/iiif/image-api')) {
-			return '/images/rodent.jpg';
-		} 
-
-		// Ok - generate our own thumbnail
-		var iiifEndpoint = image.resource.service['@id'];
-		maxWidth = maxWidth ? maxWidth : 320;
-		maxHeight = maxHeight ? maxHeight : 200;
-		var thumbUrl = iiifEndpoint + '/full/!' + maxWidth + ',' + maxHeight + '/0/default.jpg';
-		return thumbUrl;	
 	};
 	
   });
