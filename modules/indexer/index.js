@@ -110,6 +110,9 @@ Indexer.prototype.getClient = function() {
 						resolve(client);
 					}
 				});
+			})
+			.catch(function(error) {
+				reject(new Error('Could not ping ES: ' + error.message));
 			});
 	});
 }
@@ -166,6 +169,10 @@ Indexer.prototype.hasIndex = function(indexName) {
 					}
 					resolve(exists);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error checking for index: ' + error.toString());
+				reject(error);
 			});
 	});	
 }
@@ -183,6 +190,10 @@ Indexer.prototype.createIndex = function(indexName) {
 					}
 					resolve(response);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error creating index: ' + error.toString());
+				reject(error);
 			});
 	});	
 }
@@ -200,6 +211,10 @@ Indexer.prototype.removeIndex = function(indexName) {
 					}
 					resolve(response);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error removing index: ' + error.toString());
+				reject(error);
 			});
 	});
 }
@@ -217,6 +232,10 @@ Indexer.prototype.createAlias = function(indexName, aliasName) {
 					}
 					resolve(response);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error creating alias: ' + error.toString());
+				reject(error);
 			});
 	});
 
@@ -236,6 +255,10 @@ Indexer.prototype.hasAlias = function(aliasName) {
 					logger.debug('Aliases: ' + JSON.stringify(response));
 					resolve(response);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error checking alias: ' + error.toString());
+				reject(error);
 			});
 	});
 }
@@ -253,6 +276,10 @@ Indexer.prototype.createMapping = function(indexName) {
 					}
 					resolve(response);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error creating mapping: ' + error.toString());
+				reject(error);
 			});
 	});
 
@@ -276,8 +303,12 @@ Indexer.prototype.index = function(document) {
 					}
 					resolve(result);	
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error indexing document: ' + error.toString());
+				reject(error);
 			});
-		});
+	});
 }
 
 Indexer.prototype.advancedSuggest = function(hint) {
@@ -351,6 +382,10 @@ Indexer.prototype.advancedSuggest = function(hint) {
 					logger.debug('Suggestion results: ' + JSON.stringify(results));
 					resolve(suggestions);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error fetching suggestions: ' + error.toString());
+				reject(error);
 			});
 
 	});
@@ -403,6 +438,10 @@ Indexer.prototype.suggest = function(hint) {
 					logger.debug('Suggestion results: ' + JSON.stringify(results));
 					resolve(suggestions);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error fetching suggestions: ' + error.toString());
+				reject(error);
 			});
 	});
 }
@@ -493,6 +532,10 @@ Indexer.prototype.search = function(terms) {
 					});
 					resolve(sources);
 				});
+			})
+			.catch(function(error) {
+				logger.warn('Error executing query: ' + error.toString());
+				reject(error);
 			});
 	});
  

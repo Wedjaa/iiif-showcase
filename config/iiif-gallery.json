@@ -30,7 +30,7 @@
 			"host": "localhost",
 			"port": 9200,
 			"index": "iiif-gallery",
-			"timeout": 1000
+			"timeout": 5000
 		},
 		"server": {
 			"port": 3000

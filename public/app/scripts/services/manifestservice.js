@@ -206,16 +206,18 @@ angular.module('showcaseClientApp')
 			return this.parseThumbnail(canvas.thumbnail, maxWidth, maxHeight);
 		}
 
+		var images = canvas.images ? canvas.images : canvas.resources;
+
 		// Another botched manifest had no images 
-		if ( !canvas.images || canvas.images.length === 0 ) {
+		if ( !images || images.length === 0 ) {
 			return '/images/rodent.jpg';
 		}
 
 		// Get the first one
-		var image = canvas.images[0];
+		var image = images[0];
 
 		if ( image.thumbnail ) {
-			return his.parseThumbnail(image.thumbnail, maxWidth, maxHeight);
+			return this.parseThumbnail(image.thumbnail, maxWidth, maxHeight);
 		}		
 
 		return self.getImageThumbUri(image.resource, maxWidth, maxHeight);
