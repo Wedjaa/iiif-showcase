@@ -12,6 +12,10 @@ angular.module('showcaseClientApp')
 	$rootScope.favourites = {};
 	$rootScope.numFavourites = 0;
 	$scope.route = $route;
+	$scope.$on('clear_favourites', function(event) {
+	  $rootScope.favourites = {};
+	  $rootScope.numFavourites = 0;
+	});
 	$scope.$on('toggle_favourite', function(event, manifest) {
 		console.log('Received toggle for: ' + manifest.uri);
 		if ( $rootScope.favourites[manifest.uri] ) {

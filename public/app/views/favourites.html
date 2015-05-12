@@ -4,6 +4,7 @@
 	</div>
 	<div class="heading" ng-if="numFavourites">
 		<button ng-click="openMirador()" type="button" class="btn btn-success">Open in Mirador</button>
+		<button ng-click="clearFavourites()" type="button" class="btn btn-default pull-right">Clear Favourites</button>
 	</div>
 	<div class="favourites">
 		<collection ng-repeat="manifest in favourites" manifest="manifest" favourite="manifest.favourite"></collection>

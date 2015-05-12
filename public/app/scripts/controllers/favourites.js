@@ -9,6 +9,10 @@
  */
 angular.module('showcaseClientApp')
   .controller('FavouritesCtrl', function ($scope, $rootScope,  MiradorService) {
+	$scope.clearFavourites = function() {
+		$rootScope.$broadcast('clear_favourites');
+	}
+
 	$scope.openMirador = function() {
 		MiradorService.openFavourites($rootScope.favourites);
 	}

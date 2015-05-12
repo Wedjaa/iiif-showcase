@@ -28,6 +28,9 @@ angular.module('showcaseClientApp')
 	scope.linkback = HitService.getLinkback(manifestObject);	
 	scope.thumbnail = HitService.getThumbnail(manifestObject);
 	scope.loaded = true;
+        scope.$on('clear_favourites', function(event) {
+		scope.favourite = false;
+        });
 	scope.toggleFavourite = function() {
 		$rootScope.$broadcast('toggle_favourite', manifestObject);
 		scope.favourite = !scope.favourite;
