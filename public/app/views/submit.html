@@ -24,6 +24,7 @@
 	    <tr ng-repeat="manifest in manifestList">
                 <td class="vcenter" style="text-align: center"><input type="checkbox" ng-model="manifest.selected"/></td>
                 <td class="vcenter" style="text-align: left">
+		<span style="color: orange" ng-if="manifest.fixed" class="glyphicon glyphicon-link" aria-hidden="true"></span>
 		<span style="color: lightblue" ng-if="manifest.fetching && !manifest.indexing" class="glyphicon glyphicon-import" aria-hidden="true"></span>
 		<span style="color: green" ng-if="manifest.fetching && manifest.indexing" class="glyphicon glyphicon-import" aria-hidden="true"></span>
 		<span style="color: orange" ng-if="manifest.fetching && !manifest.indexing &&  manifest.error" class="glyphicon glyphicon-import" aria-hidden="true"></span>

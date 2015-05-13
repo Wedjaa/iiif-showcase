@@ -70,7 +70,11 @@ angular.module('showcaseClientApp')
 
 			return selectedValues;
 		}
-		
+	
+		if ( typeof value.value === 'string' ) {
+			return value;
+		}
+	
 		return  value.toString();;
 	};
 
@@ -87,7 +91,11 @@ angular.module('showcaseClientApp')
 
 
 	this.getDescription = function(manifest) {
-		return this.getProperty(manifest, 'description');
+		var descriptionObj =  this.getProperty(manifest, 'description');
+		if (typeof descriptionObj === 'string' ) {
+			return descriptionObj;
+		}
+		return descriptionObj.value;
 	};
 
 	this.getAllDescriptions = function(manifest) {

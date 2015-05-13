@@ -46,11 +46,19 @@ angular.module('showcaseClientApp')
 		});
 	};
 	
-	this.indexFetchedManifest = function(manifest) {
+	this.indexFetchedManifest = function(descriptor, manifest) {
 		return $q(function(resolve, reject) {
+			var manifestUri = ManifestService.getUri(manifest);
+			// If there is a difference between the manifest URI
+			// and where we fetched the manifest from, make the
+			// fetched URI the one to use.
+			if ( manifestUri != descriptor.uri ) {
+				descriptor.fixed = true;
+				manifestUri = descriptor.uri;
+			}
 
 			var indexDocument = {
-				uri: ManifestService.getUri(manifest),
+				uri: manifestUri,
 				label: ManifestService.getLabel(manifest),
 				description: ManifestService.getAllDescriptions(manifest),
 				metadata: ManifestService.getMetadata(manifest),
@@ -85,7 +93,7 @@ angular.module('showcaseClientApp')
 			ManifestService.getManifest(manifestDescriptor.uri)
 				.then(function(manifest) {
 					manifestDescriptor.indexing = true;
-					return self.indexFetchedManifest(manifest);
+					return self.indexFetchedManifest(manifestDescriptor, manifest);
 				})
 				.then(function(indexedDoc) {
 					manifestDescriptor.indexed = true;
