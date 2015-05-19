@@ -9,5 +9,11 @@
 </div>
 <h2 ng-repeat="hit in hits track by $index" ng-bind="hit"></h2>
 <div class="row marketing">
+<ul ng-cloak ng-if="pager" class="pagination">
+  <li style="cursor: pointer;" ng-class="{active: $index === page}" ng-repeat="page_num in range(pages) track by $index"><a ng-click="gotoPage($index)">{{$index+1}}</a></li>
+</ul>
   <collection ng-repeat="collection in collections" manifest="collection" favourite="favourite"></collection>
+<ul ng-cloak ng-if="pager" class="pagination">
+  <li style="cursor: pointer;" ng-class="{active: $index === page}" ng-repeat="page_num in range(pages) track by $index"><a ng-click="gotoPage($index)">{{$index+1}}</a></li>
+</ul>
 </div>

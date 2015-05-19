@@ -357,6 +357,7 @@ Indexer.prototype.advancedSuggest = function(hint) {
 		}
 
 		if (!hint.terms || hint.terms.length === 0) {
+			logger.debug('Using simple suggestion from advanced. Missing terms.');
 			self.suggest(hint)
 				.then(function(suggestions) {
 					resolve(suggestions);
@@ -371,10 +372,21 @@ Indexer.prototype.advancedSuggest = function(hint) {
 			query: {
 				filtered: {
 					filter: {
-						terms: {
-							search_suggest: hint.terms,
-							execution: 'and',
-							_cache: true
+						bool: {
+							must: [
+								{ 
+									term: {
+										typeahead: hint.value
+									}
+								},
+								{
+									terms: {
+										search_suggest: hint.terms,
+										execution: 'and',
+										_cache: true
+									}
+								}
+							]
 						}
 					}
 				}
@@ -393,27 +405,15 @@ Indexer.prototype.advancedSuggest = function(hint) {
 		};
 
 		if ( hint.attribution ) {
-			suggestQuery.filtered.filter = { 
-				boolean: {
-					must: [
-						{
-							terms: {
-								search_suggest: hint.terms,
-								execution: 'and',
-								_cache: true                                                                                                                      
-							}
-                                                },
-						{
+			suggestQuery.query.filtered.filter.bool.must.push({ 
 							term: {
 								attribution: hint.attribution
 							}
-						}
-					]
-				}
-			};
+			});
 		}
 
 		logger.debug('Query: ' + JSON.stringify(suggestQuery));
+
 		self.getClient()
                         .then(function(client) {
 				client.search({
@@ -500,36 +500,60 @@ Indexer.prototype.suggest = function(hint) {
 			return;
 		}
 
+		var suggestQuery = {
+					query: {
+						filtered: {
+							filter: {
+								term: {
+									typeahead: hint.value
+								}
+							}
+						}
+					},
+					aggs: {
+						suggestions: {
+							terms: {
+								field: 'search_suggest',
+								include: {
+									pattern:  hint.value + '.*',
+									flags : 'CANON_EQ|CASE_INSENSITIVE'
+								}
+							}
+						}
+					}                                                                                                                                         
+				};
+
+		if ( hint.attribution ) {
+			suggestQuery.query.filtered.filter = { 
+				bool: {
+					must: [
+						{
+							term: {
+								typeahead: hint.value
+							}
+						},
+						{
+							term: {
+								attribution: hint.attribution
+							}
+						}
+					]
+				}
+			};
+		}
+
+		logger.debug('Suggest query: ' + JSON.stringify(suggestQuery, undefined, 4));
+
 		self.getClient()
                         .then(function(client) {
 				client.search({
 					index: 'iiif-gallery',
 					type: 'iiif_manifest',
 					searchType: 'count',
-					body: {
-						query: {
-							filtered: {
-								filter: {
-									term: {
-										typeahead: hint.value
-									}
-								}
-							}
-						},
-						aggs: {
-							suggestions: {
-								terms: {
-									field: 'search_suggest',
-									include: {
-										pattern:  hint.value + '.*',
-										flags : 'CANON_EQ|CASE_INSENSITIVE'
-									}
-								}
-							}
-						}
-					}
+					body: suggestQuery
 				}, function(error, results) {
 					if (error) {
+						logger.warn('Error: ' + error.message);
 						reject(error);
 						return;
 					};
@@ -553,10 +577,16 @@ Indexer.prototype.suggest = function(hint) {
 	});
 }
 
-Indexer.prototype.search = function(terms) {
+Indexer.prototype.search = function(query) {
 	var self = this;
 	
 	return new Promise(function(resolve, reject) {
+
+		var terms = query.terms;
+		var attribution = query.attribution;
+		var page_size = query.page_size ? query.page_size : 20;
+		var from_page = query.from;
+
 		if (!terms || !Array.isArray(terms) || terms.length === 0) {
 			reject(new Error('Missing terms in search request'));
 			return;
@@ -620,6 +650,34 @@ Indexer.prototype.search = function(terms) {
 			}
 		};
 
+		if ( attribution ) {
+			searchQuery.query.filtered.filter = {
+				bool: {
+					must: [
+						{
+							term: {
+								attribution: attribution
+							}
+						},
+						{
+							terms: {                                                                                                                                  
+								search_suggest: terms,                                                                                                            
+								execution: 'fielddata'                                                                                                            
+							}
+						}
+					]
+				}
+			};
+		}
+
+		if ( page_size ) {
+			searchQuery.size = page_size;
+		}
+
+		if ( typeof from_page !== 'undefined' ) {
+			searchQuery.from = from_page * page_size;
+		}
+
 		self.getClient()
                         .then(function(client) {
 				client.search({
@@ -631,13 +689,14 @@ Indexer.prototype.search = function(terms) {
 						reject( new Error('Query failed: ' + error.message));
 						return;
 					}
+					logger.debug('Search result: ' + JSON.stringify(results, undefined, 4));
 					var hits = results.hits.hits;
 					var sources = hits.map(function(hit) {
 						var source = hit['_source'];
 						source.score = hit._score;
 						return source;
 					});
-					resolve(sources);
+					resolve({ total: results.hits.total, results: sources});
 				});
 			})
 			.catch(function(error) {

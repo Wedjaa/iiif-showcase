@@ -9,7 +9,7 @@ module.exports = function(app, passport) {
 
 	router.post('/query', function(req, res) {
 		logger.debug('Search query for: ' + JSON.stringify(req.body));
-		indexer.search(req.body.terms)
+		indexer.search(req.body)
 			.then(function(results) {
 				res.json({success: true, message: 'Returning search results', details: results});
 			})

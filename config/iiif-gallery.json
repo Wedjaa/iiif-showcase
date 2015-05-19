@@ -54,7 +54,7 @@
 				"modules": {
 					"file": {
 						"level": "info",
-						"filename": "logs/showcase.log",
+						"filename": "logs/modules.log",
 						"maxSize": 2048000,
 						"maxFiles": 5,
 						"tailable": true

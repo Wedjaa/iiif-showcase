@@ -5420,3 +5420,101 @@
 {"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T21:24:36.059Z"}
 {"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:24:36.059Z"}
 {"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:24:36.593Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T21:25:14.473Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:25:14.502Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:25:15.506Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"d\",\"terms\":[],\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\"}","timestamp":"2015-05-19T21:25:19.066Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":392,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":0,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[]}}}","timestamp":"2015-05-19T21:25:19.487Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"dur\",\"terms\":[],\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\"}","timestamp":"2015-05-19T21:25:19.576Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":31,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":28,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"durham\",\"doc_count\":16},{\"key\":\"durant\",\"doc_count\":5},{\"key\":\"during\",\"doc_count\":5},{\"key\":\"durch\",\"doc_count\":3},{\"key\":\"durante\",\"doc_count\":2},{\"key\":\"durchaus\",\"doc_count\":1},{\"key\":\"durchwegs\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T21:25:19.642Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:26:01.989Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T21:26:02.186Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:26:02.329Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"du\",\"terms\":[],\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\"}","timestamp":"2015-05-19T21:26:08.195Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":29,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":42,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":3,\"buckets\":[{\"key\":\"du\",\"doc_count\":25},{\"key\":\"durham\",\"doc_count\":16},{\"key\":\"durant\",\"doc_count\":5},{\"key\":\"during\",\"doc_count\":5},{\"key\":\"durch\",\"doc_count\":3},{\"key\":\"due\",\"doc_count\":2},{\"key\":\"durante\",\"doc_count\":2},{\"key\":\"duca\",\"doc_count\":1},{\"key\":\"duke\",\"doc_count\":1},{\"key\":\"dul\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T21:26:08.324Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"dur\",\"terms\":[],\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\"}","timestamp":"2015-05-19T21:26:08.501Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":126,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":28,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"durham\",\"doc_count\":16},{\"key\":\"durant\",\"doc_count\":5},{\"key\":\"during\",\"doc_count\":5},{\"key\":\"durch\",\"doc_count\":3},{\"key\":\"durante\",\"doc_count\":2},{\"key\":\"durchaus\",\"doc_count\":1},{\"key\":\"durchwegs\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T21:26:08.759Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:27:58.310Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:27:58.313Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:27:58.316Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:27:58.317Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:27:58.760Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:27:58.761Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:27:58.770Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:27:58.954Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:29:18.180Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:29:18.184Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:29:18.187Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:29:18.188Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:29:18.598Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:29:18.599Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:29:18.608Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:29:18.780Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:37:22.106Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:37:22.108Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:37:22.111Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:37:22.111Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:38:05.865Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:38:05.868Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:38:05.871Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:38:05.872Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:38:06.391Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:38:06.391Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:38:06.400Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:38:06.592Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:39:36.750Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:39:36.753Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:39:36.756Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:39:36.756Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:39:37.324Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:39:37.325Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:39:37.338Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:39:37.510Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:41:40.590Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:41:40.593Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:41:40.596Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:41:40.597Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:41:41.797Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:41:41.797Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:41:41.808Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:41:42.110Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:43:50.976Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:43:50.978Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:43:50.981Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:43:50.982Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:43:51.499Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:43:51.499Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:43:51.510Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:43:51.694Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:55:14.304Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:55:14.306Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:55:14.309Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:55:14.310Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:55:14.721Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:55:14.721Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:55:14.733Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:55:14.909Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T22:02:13.708Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T22:02:13.711Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T22:02:13.715Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T22:02:13.715Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T22:02:14.259Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T22:02:14.259Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T22:02:14.270Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T22:02:14.458Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T22:04:03.886Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T22:04:03.889Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T22:04:03.892Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T22:04:03.894Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T22:04:04.415Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T22:04:04.415Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T22:04:04.423Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T22:04:04.632Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T22:05:47.236Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T22:05:47.299Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T22:05:47.310Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T22:05:47.313Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T22:05:48.027Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T22:05:48.027Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T22:05:48.036Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T22:05:48.232Z"}

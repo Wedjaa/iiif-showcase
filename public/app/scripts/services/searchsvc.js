@@ -10,15 +10,18 @@
 angular.module('showcaseClientApp')
   .service('SearchSvc', function($q, $http) {
     
-    function search(terms) {
+    function search(terms, attribution, page_size, from_page) {
 	return new $q(function(resolve, reject) {
 
 		var query = {
-			terms: terms
+			terms: terms,
+			attribution: attribution,
+			page_size: page_size,
+			from: from_page
 		};
 
 		if ( !terms || terms.length === 0 ) {
-			resolve([]);
+			return resolve([]);
 		};
 
 		$http.post('/api/search/query', query)
@@ -57,12 +60,12 @@ angular.module('showcaseClientApp')
     
     return {
 	attributions: attributions,
-        search: function(terms) {
+        search: function(terms, attribution, page_size, from_page) {
 	    return new $q(function(resolve, reject) { 
 		    if ( terms.length === 0 ) {
 			resolve({});
 		    }
-		    search(terms)
+		    search(terms, attribution, page_size, from_page)
 			.then(function(results) {
 				resolve(results);
 			})
