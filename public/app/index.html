@@ -44,6 +44,7 @@
 
             <ul class="nav navbar-nav">
               <li ng-class="{active: route.current.tabName === 'main'}"><a ng-href="#/">Home</a></li>
+              <li ng-class="{active: route.current.tabName === 'explore'}"><a ng-href="#/explore">Explore</a></li>
               <li ng-class="{active: route.current.tabName === 'favourites'}"><a ng-href="#/favourites">Favourites <span class="badge" ng-if="numFavourites"  ng-cloak>{{numFavourites}}</span></a></li>
               <li ng-cloak ng-if="isLoggedIn" ng-class="{active: route.current.tabName === 'submit'}"><a ng-href="#/submit">Submit</a></li>
               <li ng-class="{active: route.current.tabName === 'links'}"><a ng-href="#/links">Links</a></li>
@@ -123,6 +124,7 @@
         <script src="scripts/services/searchsvc.js"></script>
         <script src="scripts/services/hitsvc.js"></script>
         <script src="scripts/services/auth.js"></script>
+        <script src="scripts/controllers/explore.js"></script>
         <!-- endbuild -->
 </body>
 </html>

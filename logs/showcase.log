@@ -5270,3 +5270,153 @@
 {"level":"debug","message":"Index request for: \"http://www.e-codices.unifr.ch/metadata/iiif/zbz-C0101/manifest.json\"","timestamp":"2015-05-19T20:22:01.938Z"}
 {"level":"debug","message":"deserialize: \"admin\"","timestamp":"2015-05-19T20:22:07.604Z"}
 {"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T20:22:07.795Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"f\",\"terms\":[]}","timestamp":"2015-05-19T20:22:58.409Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":59,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":0,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[]}}}","timestamp":"2015-05-19T20:22:58.505Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"d\",\"terms\":[]}","timestamp":"2015-05-19T20:22:58.978Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":2,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":0,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[]}}}","timestamp":"2015-05-19T20:22:59.036Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"do\",\"terms\":[]}","timestamp":"2015-05-19T20:22:59.300Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":2,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":14,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":14,\"buckets\":[{\"key\":\"dodici\",\"doc_count\":2},{\"key\":\"dont\",\"doc_count\":2},{\"key\":\"dopo\",\"doc_count\":2},{\"key\":\"douze\",\"doc_count\":2},{\"key\":\"dove\",\"doc_count\":2},{\"key\":\"down\",\"doc_count\":2},{\"key\":\"doctrinae\",\"doc_count\":1},{\"key\":\"documented\",\"doc_count\":1},{\"key\":\"documenti\",\"doc_count\":1},{\"key\":\"documents\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T20:22:59.312Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"dor\",\"terms\":[]}","timestamp":"2015-05-19T20:23:00.250Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":3,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":0,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[]}}}","timestamp":"2015-05-19T20:23:00.272Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"do\",\"terms\":[]}","timestamp":"2015-05-19T20:23:01.244Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":4,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":14,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":14,\"buckets\":[{\"key\":\"dodici\",\"doc_count\":2},{\"key\":\"dont\",\"doc_count\":2},{\"key\":\"dopo\",\"doc_count\":2},{\"key\":\"douze\",\"doc_count\":2},{\"key\":\"dove\",\"doc_count\":2},{\"key\":\"down\",\"doc_count\":2},{\"key\":\"doctrinae\",\"doc_count\":1},{\"key\":\"documented\",\"doc_count\":1},{\"key\":\"documenti\",\"doc_count\":1},{\"key\":\"documents\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T20:23:01.284Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"da\",\"terms\":[]}","timestamp":"2015-05-19T20:23:01.771Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":1,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":29,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":19,\"buckets\":[{\"key\":\"dans\",\"doc_count\":18},{\"key\":\"da\",\"doc_count\":17},{\"key\":\"das\",\"doc_count\":8},{\"key\":\"dai\",\"doc_count\":4},{\"key\":\"dal\",\"doc_count\":4},{\"key\":\"dalle\",\"doc_count\":3},{\"key\":\"damals\",\"doc_count\":3},{\"key\":\"days\",\"doc_count\":3},{\"key\":\"darstellungen\",\"doc_count\":2},{\"key\":\"darunter\",\"doc_count\":2}]}}}","timestamp":"2015-05-19T20:23:01.783Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"dar\",\"terms\":[]}","timestamp":"2015-05-19T20:23:02.855Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":3,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":6,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"darstellungen\",\"doc_count\":2},{\"key\":\"darunter\",\"doc_count\":2},{\"key\":\"darstellt\",\"doc_count\":1},{\"key\":\"darstellung\",\"doc_count\":1},{\"key\":\"darzulegen\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T20:23:02.873Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[\"darunter\"]}","timestamp":"2015-05-19T20:23:04.667Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T20:23:41.164Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T20:40:52.663Z"}
+{"level":"debug","message":"Initializing first indexer instance: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:40:52.985Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T20:40:52.666Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T20:40:52.669Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:40:52.670Z"}
+{"level":"debug","message":"Aliases: true","timestamp":"2015-05-19T20:40:53.144Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T20:40:53.146Z"}
+{"level":"debug","message":"Alias State for iiif-gallery: true","timestamp":"2015-05-19T20:40:53.145Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T20:40:53.147Z"}
+{"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T20:40:53.155Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T20:40:53.156Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T20:40:53.294Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:41:08.624Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T20:42:09.959Z"}
+{"level":"debug","message":"Initializing first indexer instance: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:42:10.301Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T20:42:09.962Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T20:42:09.965Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:42:09.965Z"}
+{"level":"debug","message":"Aliases: true","timestamp":"2015-05-19T20:42:10.548Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T20:42:10.551Z"}
+{"level":"debug","message":"Alias State for iiif-gallery: true","timestamp":"2015-05-19T20:42:10.550Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T20:42:10.552Z"}
+{"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T20:42:10.577Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T20:42:10.578Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T20:42:10.809Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:42:14.996Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T20:42:48.815Z"}
+{"level":"debug","message":"Initializing first indexer instance: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:42:49.145Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T20:42:48.817Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T20:42:48.820Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:42:48.821Z"}
+{"level":"debug","message":"Aliases: true","timestamp":"2015-05-19T20:42:49.274Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T20:42:49.277Z"}
+{"level":"debug","message":"Alias State for iiif-gallery: true","timestamp":"2015-05-19T20:42:49.276Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T20:42:49.278Z"}
+{"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T20:42:49.287Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T20:42:49.287Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T20:42:49.473Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:42:52.089Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T20:43:06.321Z"}
+{"level":"debug","message":"Initializing first indexer instance: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:43:06.772Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T20:43:06.324Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T20:43:06.327Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:43:06.328Z"}
+{"level":"debug","message":"Aliases: true","timestamp":"2015-05-19T20:43:06.963Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T20:43:06.967Z"}
+{"level":"debug","message":"Alias State for iiif-gallery: true","timestamp":"2015-05-19T20:43:06.964Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T20:43:06.967Z"}
+{"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T20:43:06.976Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T20:43:06.976Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T20:43:07.186Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:43:08.342Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T20:43:08.395Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T20:43:26.820Z"}
+{"level":"debug","message":"Initializing first indexer instance: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:43:27.235Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T20:43:26.823Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T20:43:26.826Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T20:43:26.827Z"}
+{"level":"debug","message":"Aliases: true","timestamp":"2015-05-19T20:43:27.317Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T20:43:27.323Z"}
+{"level":"debug","message":"Alias State for iiif-gallery: true","timestamp":"2015-05-19T20:43:27.320Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T20:43:27.326Z"}
+{"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T20:43:27.339Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T20:43:27.339Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T20:43:27.576Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:43:28.444Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T20:43:28.487Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T20:49:54.753Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T20:49:59.909Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T20:50:35.407Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T20:51:03.407Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:54:13.845Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T20:54:13.907Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T20:54:38.846Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:56:55.731Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T20:56:55.951Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:58:32.385Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T20:58:32.555Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T20:59:45.743Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T20:59:45.894Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:02:59.364Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:02:59.810Z"}
+{"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:04:45.096Z"}
+{"level":"debug","message":"Initializing first indexer instance: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:04:45.408Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:04:45.099Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:04:45.101Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:04:45.102Z"}
+{"level":"debug","message":"Aliases: true","timestamp":"2015-05-19T21:04:45.725Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:04:45.727Z"}
+{"level":"debug","message":"Alias State for iiif-gallery: true","timestamp":"2015-05-19T21:04:45.726Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:04:45.728Z"}
+{"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T21:04:45.747Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:04:45.747Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:04:46.017Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:05:57.712Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:05:58.523Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:06:31.039Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:06:31.274Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:07:32.858Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:07:33.115Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T21:09:40.284Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:09:40.295Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:09:40.496Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"g\",\"terms\":[]}","timestamp":"2015-05-19T21:09:45.627Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":5,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":0,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[]}}}","timestamp":"2015-05-19T21:09:45.643Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"gr\",\"terms\":[]}","timestamp":"2015-05-19T21:09:46.534Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":3,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":13,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":15,\"buckets\":[{\"key\":\"grand\",\"doc_count\":3},{\"key\":\"grande\",\"doc_count\":3},{\"key\":\"greek\",\"doc_count\":3},{\"key\":\"grossen\",\"doc_count\":3},{\"key\":\"great\",\"doc_count\":2},{\"key\":\"grec\",\"doc_count\":2},{\"key\":\"greco\",\"doc_count\":2},{\"key\":\"griechische\",\"doc_count\":2},{\"key\":\"grabinschriften\",\"doc_count\":1},{\"key\":\"gran\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T21:09:46.589Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"gre\",\"terms\":[]}","timestamp":"2015-05-19T21:09:47.763Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":3,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":5,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":1,\"buckets\":[{\"key\":\"greek\",\"doc_count\":3},{\"key\":\"great\",\"doc_count\":2},{\"key\":\"grec\",\"doc_count\":2},{\"key\":\"greco\",\"doc_count\":2},{\"key\":\"great’s\",\"doc_count\":1},{\"key\":\"greca\",\"doc_count\":1},{\"key\":\"grecque\",\"doc_count\":1},{\"key\":\"gregor\",\"doc_count\":1},{\"key\":\"gregorio\",\"doc_count\":1},{\"key\":\"gregors\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T21:09:47.779Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"gr\",\"terms\":[]}","timestamp":"2015-05-19T21:09:48.722Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":4,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":13,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":15,\"buckets\":[{\"key\":\"grand\",\"doc_count\":3},{\"key\":\"grande\",\"doc_count\":3},{\"key\":\"greek\",\"doc_count\":3},{\"key\":\"grossen\",\"doc_count\":3},{\"key\":\"great\",\"doc_count\":2},{\"key\":\"grec\",\"doc_count\":2},{\"key\":\"greco\",\"doc_count\":2},{\"key\":\"griechische\",\"doc_count\":2},{\"key\":\"grabinschriften\",\"doc_count\":1},{\"key\":\"gran\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T21:09:48.749Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T21:11:16.048Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:11:18.961Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:11:18.991Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T21:11:19.042Z"}
+{"level":"debug","message":"Search query for: {\"terms\":[]}","timestamp":"2015-05-19T21:14:42.070Z"}
+{"level":"debug","message":"Attributions list request.","timestamp":"2015-05-19T21:14:42.099Z"}
+{"level":"debug","message":"Attributions results: [{\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\",\"count\":29},{\"attribution\":\"Provided by Durham Priory Library Project - a collaboration between Durham University and Durham Cathedral\",\"count\":16}]","timestamp":"2015-05-19T21:14:42.237Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"d\",\"terms\":[],\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\"}","timestamp":"2015-05-19T21:14:56.170Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":4,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":0,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[]}}}","timestamp":"2015-05-19T21:14:56.258Z"}
+{"level":"debug","message":"Suggest request for: {\"value\":\"dur\",\"terms\":[],\"attribution\":\"e-codices - Virtual Manuscript Library of Switzerland\"}","timestamp":"2015-05-19T21:14:56.496Z"}
+{"level":"debug","message":"Suggestion results: {\"took\":6,\"timed_out\":false,\"_shards\":{\"total\":1,\"successful\":1,\"failed\":0},\"hits\":{\"total\":28,\"max_score\":0,\"hits\":[]},\"aggregations\":{\"suggestions\":{\"doc_count_error_upper_bound\":0,\"sum_other_doc_count\":0,\"buckets\":[{\"key\":\"durham\",\"doc_count\":16},{\"key\":\"durant\",\"doc_count\":5},{\"key\":\"during\",\"doc_count\":5},{\"key\":\"durch\",\"doc_count\":3},{\"key\":\"durante\",\"doc_count\":2},{\"key\":\"durchaus\",\"doc_count\":1},{\"key\":\"durchwegs\",\"doc_count\":1}]}}}","timestamp":"2015-05-19T21:14:56.677Z"}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           {"level":"debug","message":"Environment: development - set IIIF_ENV to change","timestamp":"2015-05-19T21:24:35.456Z"}
+{"level":"debug","message":"Initializing first indexer instance: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:24:35.837Z"}
+{"level":"info","message":"Loading config from: /opt/iiif-gallery/config/iiif-gallery.json","timestamp":"2015-05-19T21:24:35.458Z"}
+{"level":"info","message":"Serving client from: public/app","timestamp":"2015-05-19T21:24:35.461Z"}
+{"level":"info","message":"Configuring ElasticClient: {\"host\":\"localhost\",\"port\":9200,\"index\":\"iiif-gallery\",\"timeout\":5000}","timestamp":"2015-05-19T21:24:35.462Z"}
+{"level":"debug","message":"Aliases: true","timestamp":"2015-05-19T21:24:36.035Z"}
+{"level":"info","message":"Index state: true","timestamp":"2015-05-19T21:24:36.040Z"}
+{"level":"debug","message":"Alias State for iiif-gallery: true","timestamp":"2015-05-19T21:24:36.037Z"}
+{"level":"info","message":"Preparing authentication: admin","timestamp":"2015-05-19T21:24:36.041Z"}
+{"level":"debug","message":"Returning configured passport","timestamp":"2015-05-19T21:24:36.059Z"}
+{"level":"info","message":"Authentication configured","timestamp":"2015-05-19T21:24:36.059Z"}
+{"level":"info","message":"Example app listening at http://:::3000","timestamp":"2015-05-19T21:24:36.593Z"}

@@ -392,6 +392,27 @@ Indexer.prototype.advancedSuggest = function(hint) {
 			}
 		};
 
+		if ( hint.attribution ) {
+			suggestQuery.filtered.filter = { 
+				boolean: {
+					must: [
+						{
+							terms: {
+								search_suggest: hint.terms,
+								execution: 'and',
+								_cache: true                                                                                                                      
+							}
+                                                },
+						{
+							term: {
+								attribution: hint.attribution
+							}
+						}
+					]
+				}
+			};
+		}
+
 		logger.debug('Query: ' + JSON.stringify(suggestQuery));
 		self.getClient()
                         .then(function(client) {
@@ -423,6 +444,49 @@ Indexer.prototype.advancedSuggest = function(hint) {
 				reject(error);
 			});
 
+	});
+}
+
+Indexer.prototype.attributionsList = function() {
+
+	var self = this;
+
+	var query = { 
+		aggs: { 
+			attributions: { 
+				terms: { field: 'attribution', size: 0 } 
+			} 
+		} 
+	};
+
+	return new Promise(function(resolve, reject) {
+		self.getClient()
+                        .then(function(client) {
+				client.search({
+					index: 'iiif-gallery',
+					type: 'iiif_manifest',
+					searchType: 'count',
+					body: query
+				}, function(error, results) {
+					if (error) {
+						return reject(error);
+					}
+					var attributions = [];
+					if ( results && 
+						results.aggregations && 
+						results.aggregations.attributions &&
+						results.aggregations.attributions.buckets ) {
+						attributions = results.aggregations.attributions.buckets.map(function(bucket) {
+							return { attribution: bucket.key, count: bucket.doc_count };
+						});
+					};
+					logger.debug('Attributions results: ' + JSON.stringify(attributions));
+					resolve(attributions);
+				});
+			})
+			.catch(function(error) {
+				reject(error);
+			});
 	});
 }
 

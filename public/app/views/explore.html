@@ -1,0 +1,15 @@
+<div class="row marketing">
+        <div class="heading" ng-cloak ng-if="!attributions">
+                <h4>Nothing indexed yet...<small>Start by logging in and submitting manifest links</small></h4>
+        </div>
+        <div class="heading" ng-if="attributions">
+		<select ng-model="query.attribution" class="form-control">
+		  <option ng-repeat="attribution in attributions" value="{{attribution.attribution}}">[{{attribution.count}}] - {{attribution.attribution}}</option>
+		</select>
+		<br/>
+		<typeahead attribution="query.attribution" suggester="suggester" terms="terms"></typeahead>
+        </div>
+        <div class="favourites">
+                <collection ng-repeat="manifest in results" manifest="manifest" favourite="manifest.favourite"></collection>
+        </div>
+</div>

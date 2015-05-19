@@ -10,11 +10,12 @@
 angular.module('showcaseClientApp')
   .service('SuggesterSvc', function($q, $http) {
     
-    function suggest(terms, hint) {
+    function suggest(terms, hint, attribution) {
 	return new $q(function(resolve, reject) {
 		var query = {
 			value: hint,
-			terms: terms
+			terms: terms,
+			attribution: attribution
 		};
 
 		$http.post('/api/search/suggest', query)
@@ -34,14 +35,14 @@ angular.module('showcaseClientApp')
     }
     
     return {
-        suggest: function(terms, complete) {
+        suggest: function(terms, complete, attribution) {
 	    return new $q(function(resolve, reject) { 
 		    var hint = complete.split(/\s/).slice(-1)[0];
 		    console.log('Last hint: ' + hint);
 		    if ( hint.length === 0 ) {
 			resolve([]);
 		    }
-		    suggest(terms, hint)
+		    suggest(terms, hint, attribution)
 			.then(function(suggestions) {
 				resolve(suggestions);
 			})

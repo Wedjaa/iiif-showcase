@@ -18,6 +18,17 @@ module.exports = function(app, passport) {
 			});
 	});
 
+	router.get('/attributions', function(req, res) {
+		logger.debug('Attributions list request.');
+		indexer.attributionsList()
+			.then(function(attributions) {
+				res.json({success: true, message: 'Returning attributions', details: attributions});
+			})
+			.catch(function(error) {
+				res.json({success: false, message: error.message, details: error});
+			});
+	});
+
 	router.post('/suggest', function(req, res) {
 		logger.debug('Suggest request for: ' + JSON.stringify(req.body));
 		indexer.advancedSuggest(req.body)

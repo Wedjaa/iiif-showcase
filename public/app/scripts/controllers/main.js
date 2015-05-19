@@ -9,7 +9,6 @@
  */
 angular.module('showcaseClientApp')
   .controller('MainCtrl', function ($scope, $q, SuggesterSvc, SearchSvc) {
-	$scope.sample = 'http://www.e-codices.unifr.ch/metadata/iiif/zbz-D0217/manifest.json';
 	$scope.suggester = SuggesterSvc;
  	$scope.terms = [];
 	$scope.hits = [];

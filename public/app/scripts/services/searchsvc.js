@@ -36,8 +36,27 @@ angular.module('showcaseClientApp')
 	});
 		
     }
+
+    function attributions() {
+	return new $q(function(resolve, reject) {
+
+		$http.get('/api/search/attributions')
+			.success(function(data) {
+				console.log(data);
+				if (!data.success) {
+					reject(new Error('Error fetching results: ' + data.message));
+					return;
+				}
+				resolve(data.details);
+			})
+			.error(function(data,status) {
+				reject(new Error('Error fetching results. Status: ' + status));
+			});
+	});
+    }
     
     return {
+	attributions: attributions,
         search: function(terms) {
 	    return new $q(function(resolve, reject) { 
 		    if ( terms.length === 0 ) {

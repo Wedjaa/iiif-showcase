@@ -24,6 +24,11 @@ angular
         controller: 'MainCtrl',
 	tabName: 'main'
       })
+      .when('/explore', {
+        templateUrl: 'views/explore.html',
+        controller: 'ExploreCtrl',
+	tabName: 'explore'
+      })
       .when('/favourites', {
         templateUrl: 'views/favourites.html',
         controller: 'FavouritesCtrl',

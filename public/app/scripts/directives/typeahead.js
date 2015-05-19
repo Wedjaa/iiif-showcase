@@ -18,6 +18,7 @@ angular.module('showcaseClientApp')
       replace: 'true',
       scope: {
 	suggester: '=',
+	attribution: '=',
 	terms: '='
       },
       templateUrl: typeaheadDirectiveTpl,
@@ -86,7 +87,7 @@ angular.module('showcaseClientApp')
 		  scope.selected = 0;
 		  if (value.length > 0 ) {
 			  keyProcess = setTimeout(function() {
-				  scope.suggester.suggest(scope.terms, value.toLowerCase())
+				  scope.suggester.suggest(scope.terms, value.toLowerCase(), scope.attribution)
 					.then(function(suggestions) {
 						scope.suggestions = suggestions;
 					});
