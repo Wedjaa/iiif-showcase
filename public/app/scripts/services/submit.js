@@ -10,6 +10,9 @@
 angular.module('showcaseClientApp')
   .service('SubmitService', function ($q, $http, ManifestService) {
 
+	// Pattern to match: "manifestUri": "https://iiif.durham.ac.uk/manifests/cat/spdmt/DCLMS-B-II-30.json"
+	var manifestRegex = /"manifestUri":\s*"([^"]+)"/;
+
 	this.hasFileRead = function() {
 		if (window.File && window.FileReader && window.FileList && window.Blob) {
 			return true;
@@ -31,18 +34,37 @@ angular.module('showcaseClientApp')
             });
 	};
 
+	this.createLink = function(manifestLine) {
+		var uri = manifestRegex.exec(manifestLine);
+
+		if (!uri) {
+			uri = manifestLine;
+		} else {
+			uri = uri[1];
+		}
+
+		return {
+			uri: uri,
+			selected: false
+		};
+	};
+
 	this.loadManifests = function(file) {
-		this.readFile(file)
+		var self = this;
+		return this.readFile(file)
 			.then(function(textContent) {
 				return $q(function(resolve, reject) {
-					resolve(textList.match(/[^\r\n]+/g).map(function(manifest) { return { uri: manifest, selected: false }; }));
+					resolve(textList.match(/[^\r\n]+/g).map(function(manifest) { 
+							return self.createLink(manifest);
+						}));
 				});
 			});
 	};
 
 	this.parseManifests = function(textList) {
+		var self = this;
 		return $q(function(resolve, reject) {
-			resolve(textList.match(/[^\r\n]+/g).map(function(manifest) { return { uri: manifest, selected: false }; }));
+			resolve(textList.match(/[^\r\n]+/g).map(function(manifest) { return self.createLink(manifest); }));
 		});
 	};
 	

@@ -2,6 +2,7 @@ var express = require('express');
 var configurator = require('./modules/config');
 var path = require('path');
 var expressWinston = require('express-winston');
+var passport = require('passport');
 
 var appDir = path.dirname(require.main.filename);
 var configFile = path.join(appDir, "config", "iiif-gallery.json");
@@ -13,6 +14,15 @@ var indexerClient;
 var serviceConfig = configurator(configFile, environment);
 
 var app = express();
+
+function randString(x){
+    var s = "";
+    while(s.length<x&&x>0){
+        var r = Math.random();
+        s+= (r<0.1?Math.floor(r*100):String.fromCharCode(Math.floor(r*26) + (r>0.5?97:65)));
+    }
+    return s;
+}
 
 serviceConfig.get("logger")
 	.then(function(logconfig) {
@@ -41,13 +51,35 @@ serviceConfig.get("logger")
 	})
 	.then(function(indexReady) {
 		logger.info('Index state: ' + JSON.stringify(indexReady));
+		return serviceConfig.get('authentication');
+	})
+	.then(function(userConfig) {
+		logger.info('Preparing authentication: ' + userConfig.username);
+		return require('./modules/auth')(userConfig, passport);
+	})
+	.then(function(authConfigured) {
+		logger.info('Authentication configured');
 		return serviceConfig.get("server.port", "3000");
 	})
 	.then(function(serverPort) {
 
+		// Configure some middleware
+		var session = require('express-session');
+		var flash    = require('connect-flash');
+		var cookieParser = require('cookie-parser');
+
+		app.use(cookieParser());		
+		// Don't care about keeping sessions over restarts,
+		// just create a random session key.
+		app.use(session({ secret: randString(64), resave: true, saveUninitialized: true }));
+                app.use(passport.initialize());
+                app.use(passport.session());
+                app.use(flash()); 
+
 		// Ok - everything is setup, mount the routes
-		app.use('/api/index', require('./routes/indexer'));		
-		app.use('/api/search', require('./routes/searcher'));		
+		app.use('/api/index', require('./routes/indexer')(app, passport));		
+		app.use('/api/search', require('./routes/searcher')(app, passport));		
+		app.use('/auth', require('./routes/auth')(app, passport));		
 
 		var server = app.listen(serverPort, function () {
 		    var host = server.address().address;

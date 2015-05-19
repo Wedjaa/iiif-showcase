@@ -2,6 +2,35 @@ var Promise = require('bluebird').Promise;
 var elasticsearch = require('elasticsearch');
 var logger = require('../log')().get('modules');
 
+var iiif_settings = {
+     settings: {
+        analysis: {
+             analyzer: {
+                 edge_analyzer: {
+                      tokenizer: 'edge_tokenizer',
+                      filter: ['lowercase', 'asciifolding']
+                 },
+                 folding_analyzer: {
+                      tokenizer: 'standard',
+                      filter: [ 'lowercase', 'asciifolding' ]
+                 },
+                 sort_analyzer: {
+                      tokenizer: 'keyword',
+                      filter: [ 'lowercase', 'asciifolding' ]
+                 }
+            },
+            tokenizer: {
+                edge_tokenizer: {
+                    type: 'edgeNGram',
+                    min_gram: '2',
+                    max_gram: '32',
+                    token_chars: ['letter', 'digit']
+                }
+            }
+        }
+    }
+};
+
 var iiif_mapping = {
 	iiif_manifest: {
 		_id: {
@@ -22,7 +51,7 @@ var iiif_mapping = {
 			},
 			label: {
 				type: 'string',
-				copy_to: ['search_suggest']
+				copy_to: ['search_suggest', 'typeahead']
 			},
 			description: {
 				type: 'nested',
@@ -34,7 +63,7 @@ var iiif_mapping = {
 					value: {
 						type: 'string',
 						index: 'not_analyzed',
-						copy_to: 'search_suggest'
+						copy_to: ['search_suggest', 'typeahead']
 					}
 				}
 			},
@@ -55,7 +84,7 @@ var iiif_mapping = {
 							value: {
 								type: 'string',
 								index: 'not_analyzed',
-								copy_to: 'search_suggest'
+								copy_to: [ 'search_suggest', 'typeahead' ]
 							}
 						}
 					}
@@ -64,7 +93,7 @@ var iiif_mapping = {
 			attribution: {
 				type: 'string',
 				index: 'not_analyzed',
-				copy_to: 'search_suggest'
+				copy_to: [ 'search_suggest', 'typeahead' ]
 			},
 			thumbnail: {
 				type: 'string',
@@ -72,6 +101,12 @@ var iiif_mapping = {
 			},
 			search_suggest: {
 				type: 'string'
+			},
+			typeahead: {
+				type: 'string',
+				index_analyzer: 'edge_analyzer',
+                                search_analyzer: 'folding_analyzer',
+                                include_in_all: false
 			}
 		}
 	}
@@ -183,7 +218,7 @@ Indexer.prototype.createIndex = function(indexName) {
 	return new Promise(function(resolve, reject) {
 		self.getClient()
 			.then(function(client) {
-				client.indices.create({index: indexName}, function(error, response) {
+				client.indices.create({index: indexName, body: iiif_settings}, function(error, response) {
 					if ( error ) {
 						reject(error);
 						return;
@@ -408,7 +443,15 @@ Indexer.prototype.suggest = function(hint) {
 					type: 'iiif_manifest',
 					searchType: 'count',
 					body: {
-						query: { match_all: {} },
+						query: {
+							filtered: {
+								filter: {
+									term: {
+										typeahead: hint.value
+									}
+								}
+							}
+						},
 						aggs: {
 							suggestions: {
 								terms: {

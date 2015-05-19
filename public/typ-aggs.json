@@ -1,0 +1,22 @@
+{
+	"query": {
+		"filtered": {
+			"filter": {
+				"term": {
+					"typeahead": "beg"
+				}
+			}
+		}
+	},
+	"aggs": {
+		"suggestions": {
+			"terms" : {
+				"field" : "search_suggest",
+				"include": {
+					"pattern": "beg.*"
+				}
+			}
+		}
+	}
+}
+

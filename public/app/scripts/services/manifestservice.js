@@ -146,12 +146,28 @@ angular.module('showcaseClientApp')
 		return metadata;
 	};
 
+	this.isIIIFProfile = function(profile) {
+		if (typeof profile === 'undefined') {
+			return false;
+		}
+		if (typeof profile !== 'string') {
+			return false;
+		}
+		if ( profile.startsWith('http://iiif.io/api/image') ) {
+			return true;
+		}
+		if ( profile.startsWith('http://library.stanford.edu/iiif/image-api') ) {
+			return true;
+		}
+		return false;
+	}
+
 	this.getImageThumbUri = function(resource, maxWidth, maxHeight) {
 
 		if ( !resource || 
 			!resource.service || 
 				!resource.service.profile ||
-					!resource.service.profile.startsWith('http://library.stanford.edu/iiif/image-api')) {
+					!this.isIIIFProfile(resource.service.profile)) {
 			return '/images/rodent.jpg';
 		} 
 

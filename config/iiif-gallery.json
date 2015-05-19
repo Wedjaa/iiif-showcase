@@ -25,6 +25,10 @@
 	"production": {
 	},
 	"defaults": {
+		"authentication": {
+			"username": "admin",
+			"password": "changeme"
+		},
 		"client": "public/app",
 		"elastic": {
 			"host": "localhost",

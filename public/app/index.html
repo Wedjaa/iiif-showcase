@@ -45,9 +45,22 @@
             <ul class="nav navbar-nav">
               <li ng-class="{active: route.current.tabName === 'main'}"><a ng-href="#/">Home</a></li>
               <li ng-class="{active: route.current.tabName === 'favourites'}"><a ng-href="#/favourites">Favourites <span class="badge" ng-if="numFavourites"  ng-cloak>{{numFavourites}}</span></a></li>
-              <li ng-class="{active: route.current.tabName === 'submit'}"><a ng-href="#/submit">Submit</a></li>
+              <li ng-cloak ng-if="isLoggedIn" ng-class="{active: route.current.tabName === 'submit'}"><a ng-href="#/submit">Submit</a></li>
               <li ng-class="{active: route.current.tabName === 'links'}"><a ng-href="#/links">Links</a></li>
               <li ng-class="{active: route.current.tabName === 'contacts'}"><a ng-href="#/contacts">Contacts</a></li>
+            </ul>
+	    <ul class="nav navbar-nav pull-right">
+	      <li ng-cloak ng-if="isLoggedIn"><a ng-click="logout()" ng-href="#/">Logout</a></li>
+              <li ng-cloak ng-if="!isLoggedIn" class="dropdown" id="menuLogin">
+                <a class="dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown" id="navLogin">Login</a>
+                <div class="dropdown-menu">
+                  <form class="form login-form"> 
+                    <input name="username" id="username" class="login-input" type="text" ng-model="loginForm.username"  placeholder="Username"></input>
+                    <input name="password" id="password" class="login-input" type="password"  ng-model="loginForm.password" placeholder="Password"></input>
+                    <button type="submit" ng-click='login()' class="btn login-button pull-right">Login</button>
+                  </form>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -109,6 +122,7 @@
         <script src="scripts/directives/suggestions.js"></script>
         <script src="scripts/services/searchsvc.js"></script>
         <script src="scripts/services/hitsvc.js"></script>
+        <script src="scripts/services/auth.js"></script>
         <!-- endbuild -->
 </body>
 </html>
