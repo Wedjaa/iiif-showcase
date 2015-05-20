@@ -15,6 +15,20 @@
   <script src="build/mirador/mirador.js"></script>
   <script type="text/javascript">
 
+	var qs = (function(a) {
+	    if (a == "") return {};
+	    var b = {};
+	    for (var i = 0; i < a.length; ++i)
+	    {
+		var p=a[i].split('=', 2);
+		if (p.length == 1)
+		    b[p[0]] = "";
+		else
+		    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+	    }
+	    return b;
+	})(window.location.search.substr(1).split('&'));
+
 	function initialize(manifestsLinks) {
 	      console.log('Using Manifests: ' + JSON.stringify(manifestsLinks));
 	      var windowObjects = [];
@@ -41,6 +55,19 @@
 		"saveSession": true,
 		"data": manifestsLinks,
 		"windowObjects": windowObjects
+	      });
+	}
+
+        if ( qs['json'] || location.hash ) {
+  	      // It's a bookmark - let mirador take care of it
+		console.log("Creating viewer and hoping he knows what to do...");
+	      Mirador({
+		"id": "viewer",
+		"layout": "1x2",
+		"data": [
+		  { "location": "The Frick Collection"},
+		],
+		"windowObjects": []
 	      });
 	}
 

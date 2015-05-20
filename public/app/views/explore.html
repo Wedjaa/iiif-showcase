@@ -7,9 +7,14 @@
 		  <option ng-repeat="attribution in attributions" value="{{attribution.attribution}}">[{{attribution.count}}] - {{attribution.attribution}}</option>
 		</select>
 		<br/>
-		<typeahead attribution="query.attribution" suggester="suggester" terms="terms"></typeahead>
+		<typeahead attribution="query.attribution" suggester="suggester" terms="query.terms"></typeahead>
+		<br/>
+		<br/>
         </div>
         <div class="favourites">
-                <collection ng-repeat="manifest in results" manifest="manifest" favourite="manifest.favourite"></collection>
+		<ul ng-cloak ng-if="pager" class="pagination">
+		  <li style="cursor: pointer;" ng-class="{active: $index === page}" ng-repeat="page_num in range(pages) track by $index"><a ng-click="gotoPage($index)">{{$index+1}}</a></li>
+		</ul>
+                <collection ng-repeat="manifest in collections" manifest="manifest" favourite="manifest.favourite"></collection>
         </div>
 </div>
